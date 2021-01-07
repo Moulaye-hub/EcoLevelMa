@@ -9,13 +9,13 @@ sudo npm install npm@latest -g
 // Install the Angular CLI
 sudo npm install -g @angular/cli
 
-// Install package amCharts 4
+// Install amCharts4 packages
 npm install @amcharts/amcharts4
 npm install @amcharts/amcharts4-geodata
 npm install @amcharts/amcharts4-fonts
 
 
-// After that you go to the Angular project (hear the /Frontend folder) and start the server of Angular
+// After that you should go to the Angular project (the /Frontend folder in our case) and start the server of Angular
 npm start
  (or)
 ng serve
