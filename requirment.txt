@@ -1,0 +1,21 @@
+// First of all you sould install Node.js by thoses commands :
+
+curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+sudo apt-get install -y nodejs
+
+// Now you will update NPM
+sudo npm install npm@latest -g
+
+// Install the Angular CLI
+sudo npm install -g @angular/cli
+
+// Install package amCharts 4
+npm install @amcharts/amcharts4
+npm install @amcharts/amcharts4-geodata
+npm install @amcharts/amcharts4-fonts
+
+
+// After that you go to the Angular project (hear the /Frontend folder) and start the server of Angular
+npm start
+ (or)
+ng serve
