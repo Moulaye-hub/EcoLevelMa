@@ -53,7 +53,7 @@ export class ChartComponent {
       chart.chartContainer.background.events.on("hit", function () { zoomOut() });
 
       let colorSet = new am4core.ColorSet();
-      let morphedPolygon;
+      let morphedPolygon: am4maps.MapObject | undefined;
 
       // map polygon series (countries)
       let polygonSeries = chart.series.push(new am4maps.MapPolygonSeries());
@@ -153,7 +153,7 @@ export class ChartComponent {
       countryLabel.show();
 
       // select polygon
-      function selectPolygon(polygon) {
+      function selectPolygon(polygon: am4maps.MapObject | undefined) {
           if (morphedPolygon != polygon) {
               let animation = pieSeries.hide();
               if (animation) {
@@ -168,7 +168,7 @@ export class ChartComponent {
       }
 
       // fade out all countries except selected
-      function fadeOut(exceptPolygon) {
+      function fadeOut(exceptPolygon: am4maps.MapObject | undefined) {
           for (var i = 0; i < polygonSeries.mapPolygons.length; i++) {
               let polygon = polygonSeries.mapPolygons.getIndex(i);
               if (polygon != exceptPolygon) {
@@ -196,7 +196,7 @@ export class ChartComponent {
           }
       }
 
-      function morphToCircle(polygon) {
+      function morphToCircle(polygon: am4maps.MapObject) {
 
 
           let animationDuration = polygon.polygon.morpher.morphDuration;
@@ -235,7 +235,7 @@ export class ChartComponent {
           }
       }
 
-      function zoomToCountry(polygon) {
+      function zoomToCountry(polygon: am4maps.MapObject) {
           let zoomAnimation = chart.zoomToMapObject(polygon, 2.2, true);
           if (zoomAnimation) {
               zoomAnimation.events.on("animationended", function () {
@@ -248,7 +248,7 @@ export class ChartComponent {
       }
 
 
-      function showPieChart(polygon) {
+      function showPieChart(polygon: am4maps.MapObject) {
         polygon.polygon.measure();
         let radius = polygon.polygon.measuredWidth / 2 * polygon.globalScale / chart.seriesContainer.scale;
         pieChart.width = radius * 2;
